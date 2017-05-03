@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import config from './config/index.js'
 
 class App extends Component {
   render() {
+    console.log('config',config);
     return (
       <div className="App">
         <div className="App-header">
@@ -11,7 +13,9 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          CURRENT ROOT API IS: {
+            config.api_root
+          }
         </p>
       </div>
     );

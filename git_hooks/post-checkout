@@ -1,0 +1,19 @@
+#!/bin/bash
+# ------------------------------------------------------------------------------
+# Used on git hooks to call generate configuration script for your application
+# Usage:
+#  - copy this file to .git/hooks of react project
+#  - rename to post-checkout
+#  - add execute permission to script
+# ------------------------------------------------------------------------------
+
+
+# 1. Get project repository-name
+url=`git remote show -n origin | grep Fetch | cut -d: -f2-`
+url_without_suffix="${url%.*}"
+repository_name="$(basename "${url_without_suffix}")"
+echo "Working on repository $repository_name"
+
+# 2. call generate-config.sh scripts
+
+./git_hooks/generate-config.sh $repository_name
